@@ -1,0 +1,24 @@
+<!-- Include jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- JavaScript code to fetch notifications -->
+<script>
+$(document).ready(function() {
+    // Function to fetch notifications
+    function fetchNotifications() {
+        $.ajax({
+            url: 'fetch_notifications.php',
+            type: 'GET',
+            success: function(data) {
+                $('#notifications').html(data);
+            }
+        });
+    }
+
+    // Fetch notifications every 5 seconds
+    setInterval(fetchNotifications, 5000);
+});
+</script>
+
+<!-- HTML to display notifications -->
+<div id="notifications"></div>
